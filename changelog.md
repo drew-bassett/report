@@ -1,3 +1,7 @@
+## v5.2.7
+
++ Add Laravel 12 support
+
 ## v5.2.6
 
 + Minor bug fix to preview query
