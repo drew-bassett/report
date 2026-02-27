@@ -14,8 +14,7 @@ use MBLSolutions\Report\Services\TestReportService;
 
 class ManageReportController
 {
-    /** @var ManageReportRepository $repository */
-    protected $repository;
+    protected ManageReportRepository $repository;
 
     /**
      * Manage Report Controller
@@ -45,10 +44,10 @@ class ManageReportController
     /**
      * Show a Report
      *
-     * @param int|null $id
+     * @param int|string|null $id
      * @return ReportResource
      */
-    public function show($id = null): ReportResource
+    public function show(int|string|null $id = null): ReportResource
     {
         return new ReportResource($this->repository->findOrNew($id));
     }

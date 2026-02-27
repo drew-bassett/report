@@ -37,10 +37,10 @@ class ManageReportRepository
     /**
      * Get a Report or make a New One
      *
-     * @param null $id
+     * @param int|string|null $id
      * @return Report
      */
-    public function findOrNew($id = null): Report
+    public function findOrNew(int|string|null $id = null): Report
     {
         if ($id !== 'null' && $id !== null) {
             $report = Report::findOrFail($id);

@@ -13,6 +13,8 @@ abstract class QueuedReportExport implements QueuedExportDriver
 
     protected int $limit;
 
+    protected string $name;
+
     /**
      * Queued Report Export
      *
@@ -20,7 +22,7 @@ abstract class QueuedReportExport implements QueuedExportDriver
      * @param int $offset
      * @param int $limit
      */
-    public function __construct(BuildReportService $service = null, int $offset = 0, int $limit = 1000)
+    public function __construct(?BuildReportService $service = null, int $offset = 0, int $limit = 1000)
     {
         $this->service = $service;
         $this->offset = $offset;

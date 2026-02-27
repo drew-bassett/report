@@ -17,7 +17,7 @@ class ProcessReportExportChunk extends RenderReportJob
 {
     public int $chunk;
 
-    public function __construct(Report $report, ReportJob $reportJob, array $request, int $chunk, $authenticatable = null)
+    public function __construct(Report $report, ReportJob $reportJob, array $request, int $chunk, mixed $authenticatable = null)
     {
         $this->report = $report;
         $this->reportJob = $reportJob;
@@ -125,9 +125,11 @@ class ProcessReportExportChunk extends RenderReportJob
 
         if ($job->getAttribute('processed') !== $job->getAttribute('total')) {
             throw new RuntimeException(
-                sprintf('Unable to complete report export; processed count %d does not match total count %d',
+                sprintf(
+                    'Unable to complete report export; processed count %d does not match total count %d',
                     $job->getAttribute('processed'),
-                    $job->getAttribute('total'))
+                    $job->getAttribute('total')
+                )
             );
         }
 
